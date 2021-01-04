@@ -26,6 +26,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/articles' do
+    binding.pry
     @article = Article.new
     @article.title = params[:title]
     @article.content = params[:content]
@@ -35,7 +36,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/articles/:id/edit' do
+    @article = Article.find_by_id(params[:id])
     erb :edit
+  end
+
+  patch '/articles/:id' do
+    @article.title = params[:title]
+    @article.content = params[:content]
+    @article.update
+    erb :show     
   end
 
   
