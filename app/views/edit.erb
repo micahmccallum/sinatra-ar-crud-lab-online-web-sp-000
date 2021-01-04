@@ -7,6 +7,7 @@
 </head>
 <body>
   <form action="/articles/:id" method="POST">
+    <p><label for="id">Article Number: <%= @article.id %></label></p>
     <p><label>Title: <input type="text" name="title" value="<%= @article.title %>"></label></p>
     <p><label>Content: <input type="textarea" name="content" value="<%= @article.content %>" size="100"></label></p>
     <input type="hidden" name="_method" id="hidden" value="PATCH">
@@ -14,3 +15,5 @@
   </form>
 </body>
 </html>
+
+>
